@@ -1,5 +1,6 @@
 ﻿#include "WinApp.h"
 
+#pragma comment(lib,"winmm.lib")
 
 LRESULT WinApp::WindowProc(HWND hwnd, UINT msg, 
                         WPARAM wparam, LPARAM lparam)
@@ -19,6 +20,8 @@ LRESULT WinApp::WindowProc(HWND hwnd, UINT msg,
 
 void WinApp::Initialize()
 {
+    // システムタイマーの分解能を上げる
+    timeBeginPeriod(1);
 
     // ウィンドウクラスの設定
     w.cbSize = sizeof(WNDCLASSEX);
@@ -65,7 +68,7 @@ void WinApp::Finalize()
 
 }
 
-bool WinApp::ProcesMessage()
+bool WinApp::ProcessMessage()
 {
     MSG msg{};  // メッセージ
     // メッセージがある？

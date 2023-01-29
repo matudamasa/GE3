@@ -26,7 +26,7 @@ public:		// メンバ変数
 	void Finalize();
 
 	// メッセージの処理
-	bool ProcesMessage();
+	bool ProcessMessage();
 
 	// getter
 	HWND GetHwnd() const { return hwnd; }
